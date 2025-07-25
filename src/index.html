@@ -15,46 +15,107 @@
   </style>
 </head>
 <body>
+  <!-- Dark Overlay that appears when off-screen-menu is open -->
+  <div id="overlay" class="overlay" aria-hidden="true" aria-label="Background Overlay"></div>
+  <aside id="off-screen-menu" class="off-screen-menu" role="complementary">
+    <div class="w-full" role="button">
+      <img id="close-menu" aria-controls="off-screen-menu" aria-label="Close menu" aria-expanded="true" class="h-[30px] w-[30px] justify-self-end cursor-pointer" src="../assets/images/icon-menu-close.svg" alt="close menu" />
+    </div>
+    <ul role="navigation">
+      <li>Home</li>
+      <li>New</li>
+      <li>Popular</li>
+      <li>Trending</li>
+      <li>Categories</li>
+    </ul>
+  </aside>
 
-  Home
-  New
-  Popular
-  Trending
-  Categories
+  <main>
+    <nav>
+      <img role="banner" class="h-[28px] w-[45px]" src="../assets/images/logo.svg" alt="logo" />
+      <img id="menu" class="h-[17px] w-[40px] cursor-pointer lg:hidden" role="button" aria-label="Open menu" aria-expanded="false" aria-controls="off-screen-menu"  src="../assets/images/icon-menu.svg" alt="menu" />
+      <ul role="navigation">
+        <li>Home</li>
+        <li>New</li>
+        <li>Popular</li>
+        <li>Trending</li>
+        <li>Categories</li>
+      </ul>
+    </nav>
 
-  The Bright Future of Web 3.0?
+    <header aria-label="Hero section">
+      <picture>
+        <source
+          srcset="../assets/images/image-web-3-desktop.jpg" media="(width >= 768px)" />
+          <img src="../assets/images/image-web-3-mobile.jpg" alt="hero image" />
+      </picture>
+      <article aria-labelledby="web-header">
+        <h1 id="web-header">The Bright Future of Web 3.0?</h1>
+        <hgroup id="sub-section" aria-label="Header description">
+          <p>
+            We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people.
+            But is it really fulfilling its promise?
+          </p>
+              <button>Read more</button>
+        </hgroup>
+      </article>
+    </header>
 
-  We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
-  But is it really fulfilling its promise?
+    <section class="featured-articles" title="Featured Articles">
+      <h1>New</h1>
+      
+      <article>
+        <h2>Hydrogen VS Electric Cars</h2>
+        <p>Will hydrogen-fueled cars ever catch up to EVs?</p>
+      </article>
 
-  Read more
+      <article>
+        <h2>The Downsides of AI Artistry</h2>
+        <p>What are the possible adverse effects of on-demand AI image generation?</p>
+      </article>
 
-  New 
+      <article>
+        <h2>Is VC Funding Drying Up?</h2>
+        <p>Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+      </article>
+    </section>
 
-  Hydrogen VS Electric Cars
-  Will hydrogen-fueled cars ever catch up to EVs?
+    <section class="article-list" title="Article List">
+      
+      <article>
+        <img src="../assets/images/image-retro-pcs.jpg" alt="retro pc" />
+        <div class="article-item" role="group">
+          <h1>01</h1>
+          <h2>Reviving Retro PCs</h2>
+          <p>What happens when old PCs are given modern upgrades?</p>
+        </div>
+      </article> 
 
-  The Downsides of AI Artistry
-  What are the possible adverse effects of on-demand AI image generation?
+      <article>
+        <img src="../assets/images/image-top-laptops.jpg" alt="top laptops" />
+        <div class="article-item" role="group">
+          <h1>02</h1>
+          <h2>Top 10 Laptops of 2022</h2>
+          <p>Our best picks for various needs and budgets.</p>
+        </div>
+      </article>
 
-  Is VC Funding Drying Up?
-  Private funding by VC firms is down 50% YOY. We take a look at what that means.
+      <article>
+        <img src="../assets/images/image-gaming-growth.jpg" alt="gaming growth" />
+        <div class="article-item" role="group">
+          <h1>03</h1>
+          <h2>The Growth of Gaming</h2>
+          <p>How the pandemic has sparked fresh opportunities.</p>
+        </div>
+      </article>
 
-  01
-  Reviving Retro PCs
-  What happens when old PCs are given modern upgrades?
+    </section>
+    <div class="attribution" role="complementary">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Devon Adams</a>.
+    </div>
+  </main>
 
-  02
-  Top 10 Laptops of 2022
-  Our best picks for various needs and budgets.
-
-  03
-  The Growth of Gaming
-  How the pandemic has sparked fresh opportunities.
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+  <script src="./main.js"></script>
 </body>
 </html>

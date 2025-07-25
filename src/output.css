@@ -1,4 +1,5 @@
 /*! tailwindcss v4.1.11 | MIT License | https://tailwindcss.com */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @layer properties;
 @layer theme, base, components, utilities;
 @layer theme {
@@ -7,8 +8,16 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: hsl(4, 85%, 63%);
+    --color-black: #000;
+    --color-white: hsl(36, 100%, 99%);
+    --spacing: 8px;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
+    --color-grey-300: hsl(233, 8%, 79%);
+    --color-navy-950: hsl(240, 100%, 5%);
+    --color-navy-600: hsl(236, 13%, 42%);
+    --color-gold-400: hsl(35, 77%, 62%);
   }
 }
 @layer base {
@@ -163,12 +172,324 @@
   .contents {
     display: contents;
   }
+  .hidden {
+    display: none;
+  }
   .table {
     display: table;
+  }
+  .h-\[17px\] {
+    height: 17px;
+  }
+  .h-\[28px\] {
+    height: 28px;
+  }
+  .h-\[30px\] {
+    height: 30px;
+  }
+  .w-\[30px\] {
+    width: 30px;
+  }
+  .w-\[40px\] {
+    width: 40px;
+  }
+  .w-\[45px\] {
+    width: 45px;
+  }
+  .w-full {
+    width: 100%;
+  }
+  .cursor-pointer {
+    cursor: pointer;
+  }
+  .justify-self-end {
+    justify-self: flex-end;
   }
   .outline {
     outline-style: var(--tw-outline-style);
     outline-width: 1px;
+  }
+  .lg\:hidden {
+    @media (width >= 1440px) {
+      display: none;
+    }
+  }
+}
+@layer base {
+  body {
+    background-color: var(--color-white);
+    padding-inline: calc(var(--spacing) * 2);
+    padding-block: calc(var(--spacing) * 3.5);
+    @media (width >= 768px) {
+      padding-inline: calc(var(--spacing) * 10);
+    }
+    @media (width >= 1440px) {
+      padding-inline: calc(var(--spacing) * 20);
+    }
+    @media (width >= 1440px) {
+      padding-block: calc(var(--spacing) * 11);
+    }
+  }
+  nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  nav ul {
+    display: flex;
+    flex-direction: row;
+    gap: calc(var(--spacing) * 5);
+    @media (width < 1440px) {
+      display: none;
+    }
+  }
+  nav ul li {
+    cursor: pointer;
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    color: var(--color-navy-950);
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gold-400);
+      }
+    }
+  }
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 8);
+    @media (width >= 1440px) {
+      display: grid;
+    }
+    @media (width >= 1440px) {
+      flex: none;
+    }
+    @media (width >= 1440px) {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    @media (width >= 1440px) {
+      column-gap: calc(var(--spacing) * 4);
+    }
+    @media (width >= 1440px) {
+      row-gap: calc(var(--spacing) * 8);
+    }
+  }
+  main nav {
+    @media (width >= 1440px) {
+      grid-column: span 3 / span 3;
+    }
+  }
+  main header {
+    @media (width >= 1440px) {
+      grid-column: span 2 / span 2;
+    }
+  }
+  main .article-list {
+    @media (width >= 1440px) {
+      grid-column: span 3 / span 3;
+    }
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+  }
+  header article, header article > hgroup {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 3);
+  }
+  header article {
+    @media (width >= 1440px) {
+      flex-direction: row;
+    }
+  }
+  header article h1 {
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: 0px;
+    font-weight: 800;
+    color: var(--color-navy-950);
+  }
+  header article p {
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    color: var(--color-navy-600);
+  }
+  header article button {
+    width: fit-content;
+    cursor: pointer;
+    background-color: var(--color-red-500);
+    padding-inline: calc(var(--spacing) * 4);
+    padding-block: calc(var(--spacing) * 1);
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 4.38px;
+    font-weight: 700;
+    color: var(--color-navy-950);
+    text-transform: uppercase;
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-navy-950);
+      }
+    }
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-white);
+      }
+    }
+  }
+}
+@layer components {
+  .off-screen-menu {
+    position: fixed;
+    top: calc(var(--spacing) * 0);
+    right: -450px;
+    z-index: 20;
+    height: 100%;
+    width: 100%;
+    max-width: 256px;
+    cursor: pointer;
+    background-color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 11);
+    padding: calc(var(--spacing) * 3);
+    transition: .3s ease;
+  }
+  .off-screen-menu.active {
+    right: calc(var(--spacing) * 0);
+  }
+  .off-screen-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+  }
+  .off-screen-menu li {
+    cursor: pointer;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    color: var(--color-navy-950);
+    &:hover {
+      @media (hover: hover) {
+        color: var(--color-gold-400);
+      }
+    }
+  }
+  .overlay {
+    position: fixed;
+    inset: calc(var(--spacing) * 0);
+    z-index: 10;
+    display: none;
+    background-color: color-mix(in srgb, #000 60%, transparent);
+    @supports (color: color-mix(in lab, red, red)) {
+      background-color: color-mix(in oklab, var(--color-black) 60%, transparent);
+    }
+    transition: opacity .3s ease-in-out;
+  }
+  .overlay.active {
+    display: block;
+  }
+  .featured-articles {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-navy-950);
+    padding-inline: calc(var(--spacing) * 3);
+    padding-block: calc(var(--spacing) * 2);
+  }
+  .featured-articles h1 {
+    padding-bottom: calc(var(--spacing) * 4);
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    font-weight: 700;
+    color: var(--color-gold-400);
+  }
+  .featured-articles h2 {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-weight: 800;
+    color: var(--color-white);
+  }
+  .featured-articles p {
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    color: var(--color-grey-300);
+  }
+  .featured-articles article {
+    display: flex;
+    cursor: pointer;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
+  }
+  .featured-articles article:hover h2 {
+    color: var(--color-gold-400);
+  }
+  .featured-articles article:not(:last-of-type)::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: var(--color-grey-300);
+    margin-block: 32px;
+  }
+  .article-list {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 4);
+    @media (width >= 1440px) {
+      flex-direction: row;
+    }
+    @media (width >= 1440px) {
+      gap: calc(var(--spacing) * 5);
+    }
+  }
+  .article-list h1 {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    font-weight: 700;
+    color: var(--color-red-500);
+  }
+  .article-list h2 {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-weight: 800;
+    color: var(--color-navy-950);
+  }
+  .article-list img {
+    height: 129px;
+    width: 129px;
+  }
+  .article-list p {
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: 0px;
+    font-weight: 400;
+    color: var(--color-navy-600);
+  }
+  .article-list article {
+    display: flex;
+    cursor: pointer;
+    flex-direction: row;
+    gap: calc(var(--spacing) * 3);
+  }
+  .article-list article .article-item {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--spacing) * 1);
+  }
+  .article-item:hover h2 {
+    color: var(--color-red-500);
   }
 }
 @property --tw-outline-style {

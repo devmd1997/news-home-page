@@ -1,1 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
+
+@theme {
+    --color-white: hsl(36, 100%, 99%);
+    --color-grey-300: hsl(233, 8%, 79%);
+    --color-grey-200: hsl(0, 0%, 85%);
+
+    --color-navy-950: hsl(240, 100%, 5%);
+    --color-navy-600: hsl(236, 13%, 42%);
+
+    --color-gold-400: hsl(35, 77%, 62%);
+    --color-red-500: hsl(4, 85%, 63%);
+
+    --font-inter: 'Inter', sans-serif;
+
+     /* Spacing */
+    --spacing: 8px;
+
+    --radius-sm: 5px;
+    --radius-md: 15px;
+    --radius-lg: 25px;
+
+
+    /* Breakpoints */
+    --breakpoint-sm: 375px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 1440px;
+}
+
+@utility text-preset-1 {
+    font-size: 56px;
+    line-height: 56px;
+    letter-spacing: 0px;
+    font-weight: 800;
+}
+
+@utility text-preset-2 {
+    font-size: 40px;
+    line-height: 48px;
+    letter-spacing: 0px;
+    font-weight: 800;
+}
+
+@utility text-preset-3 {
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 0px;
+    font-weight: 700;
+}
+
+@utility text-preset-4 {
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-weight: 800;
+}
+
+@utility text-preset-5 {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-weight: 800;
+}
+
+@utility text-preset-6 {
+    font-size: 15px;
+    line-height: 26px;
+    letter-spacing: 0px;
+    font-weight: 400;
+}
+
+@utility text-preset-7 {
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: 4.38px;
+    font-weight: 700;
+}
+
+@utility menu-text {
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: 0px;
+    font-weight: 400;
+}
+
+@layer base {
+    body {
+        @apply bg-white py-3.5 px-2 md:px-10 lg:py-11 lg:px-20;
+    }
+
+    nav {
+        @apply flex flex-row justify-between;
+    }
+
+    nav ul {
+        @apply max-lg:hidden flex flex-row gap-5;
+    }
+
+    nav ul li {
+        @apply text-preset-6 text-navy-950 cursor-pointer hover:text-gold-400; 
+    }
+
+    main {
+        @apply flex flex-col gap-8 lg:flex-none lg:grid lg:grid-cols-3 lg:gap-y-8 lg:gap-x-4;
+    }
+
+    main nav {
+        @apply lg:col-span-3;
+    }
+
+    main header {
+        @apply lg:col-span-2;
+    }
+
+    main .article-list {
+        @apply lg:col-span-3;
+    }
+
+    header {
+        @apply flex flex-col gap-4;
+    }
+
+    header article,
+    header article > hgroup {
+        @apply flex flex-col gap-3;
+    }
+
+    header article {
+        @apply lg:flex-row;
+    }
+
+    header article h1 {
+        @apply text-preset-1 text-navy-950;
+    }
+
+    header article p {
+        @apply text-preset-6 text-navy-600;
+    }
+
+    header article button {
+        @apply bg-red-500 hover:bg-navy-950 uppercase text-preset-7 text-navy-950 hover:text-white px-4 py-1 w-fit cursor-pointer;
+    }
+}
+
+@layer components {
+    .off-screen-menu {
+        @apply bg-white cursor-pointer h-full w-full max-w-[256px] fixed top-0 z-20 right-[-450px];
+        @apply flex flex-col gap-11 p-3;
+        transition: .3s ease;
+    }
+
+    .off-screen-menu.active {
+        @apply right-0;
+    }
+
+    .off-screen-menu ul {
+        @apply flex flex-col gap-4;
+    }
+
+    .off-screen-menu li {
+        @apply menu-text text-navy-950 cursor-pointer hover:text-gold-400;
+    }
+
+    .overlay {
+        @apply hidden fixed inset-0 bg-black/60 z-10;
+        transition: opacity .3s ease-in-out;
+    }
+
+    .overlay.active {
+        @apply block;
+    }
+
+    .featured-articles {
+        @apply bg-navy-950 flex flex-col px-3 py-2;
+    }
+
+    .featured-articles h1 {
+        @apply text-preset-3 text-gold-400 pb-4;
+    }
+
+    .featured-articles h2 {
+        @apply text-preset-4 text-white;
+    }
+
+    .featured-articles p {
+        @apply text-preset-6 text-grey-300;
+    }
+
+    .featured-articles article {
+        @apply flex flex-col gap-1 cursor-pointer;
+    }
+
+    .featured-articles article:hover h2 {
+        @apply text-gold-400;
+    }
+
+    .featured-articles article:not(:last-of-type)::after {
+        content: "";
+        width: 100%;
+        height: 1px;
+        background-color: var(--color-grey-300);
+        margin-block: 32px;
+    }
+
+    .article-list {
+        @apply flex flex-col lg:flex-row gap-4 lg:gap-5;
+    }
+
+    .article-list h1 {
+        @apply text-preset-3 text-red-500;
+    }
+
+    .article-list h2 {
+        @apply text-preset-5 text-navy-950;
+    }
+
+    .article-list img {
+        @apply h-[129px] w-[129px];
+    }
+
+    .article-list p {
+        @apply text-preset-6 text-navy-600;
+    }
+
+    .article-list article {
+        @apply flex flex-row gap-3 cursor-pointer;
+    }
+
+    .article-list article .article-item {
+        @apply flex flex-col gap-1;
+    }
+
+    .article-item:hover h2 {
+        @apply text-red-500;
+    }
+
+ 
+}
